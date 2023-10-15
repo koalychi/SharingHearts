@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import bcrypt from 'bcrypt'
+import { emailRegexp } from "../configs";
 
 const userSchema = new mongoose.Schema({
   id: mongoose.Types.ObjectId,
@@ -19,7 +20,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     unique: true,
     required: true,
-    match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    match: emailRegexp
   },
   password: {
     type: String,
