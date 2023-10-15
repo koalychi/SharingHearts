@@ -24,3 +24,10 @@ export type UserData = {
   contacts?: string,
   tags?: string[],
 }
+
+export type TaskType = {
+  title: string,
+  description: string,
+  tags: string[]
+  deadline: string
+}

@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import mongoosePaginate from 'mongoose-paginate-v2'
 
 const taskSchema = new mongoose.Schema({
   id: mongoose.Types.ObjectId,
@@ -32,5 +33,7 @@ const taskSchema = new mongoose.Schema({
     required: true,
   }
 })
+
+taskSchema.plugin(mongoosePaginate);
 
 export const Task = mongoose.model('Task', taskSchema)

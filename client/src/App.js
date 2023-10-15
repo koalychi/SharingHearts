@@ -21,9 +21,9 @@ function App() {
          <Header />
          <Switch>
             <Route path="/" exact component={Categories} />
-            <Route path="/categories/:category" exact component={Categories} />
-            <Route path="/categories/:category/:id/details" component={Details} />
-            <Route path="/categories/:category/:id/edit" component={Edit} />
+            <Route path="/categories" exact component={Categories} />
+            <Route path="/categories/:id/details" component={Details} />
+            <Route path="/categories/:id/edit" component={Edit} />
             <Route path="/auth/login" exact component={Login} />
             <Route path="/auth/register" exact component={Register} />
             <Route path="/auth/logout" exact render={LogOut} />

@@ -15,7 +15,7 @@ export async function getSpecific(id) {
 }
 
 export async function createProduct(product) {
-    return (await fetch(`${baseUrl}/products/create`, {
+    return (await fetch(`${baseUrl}/task/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

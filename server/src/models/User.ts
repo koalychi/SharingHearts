@@ -49,7 +49,13 @@ const userSchema = new mongoose.Schema({
       type: String,
       trim: true,
     }
-  ]
+  ],
+  tasks: [
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Task'
+    }
+],
 })
 
 
