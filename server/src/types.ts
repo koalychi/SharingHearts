@@ -13,7 +13,7 @@ export type LoginData = {
   password: string
 }
 
-export type RegistrationData = {
+export type UserData = {
   first_name: string,
   last_name: string,
   email: string,

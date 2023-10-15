@@ -8,6 +8,7 @@ export const authController = Router()
 
 authController.post('/register', async (req, res) => {
     try {
+        console.log('register', req.body);
         let createdUser = await authService.registerUser(req.body);
         res.status(201).json({ _id: createdUser._id });
     } catch (error) {

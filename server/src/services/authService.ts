@@ -1,10 +1,10 @@
 import { User } from "../models/User";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { LoginData, RegistrationData } from "../types";
+import { LoginData, UserData } from "../types";
 import { emailRegexp } from "../configs";
 
-export const registerUser = async (userData: RegistrationData) => {
+export const registerUser = async (userData: UserData) => {
   const { first_name, last_name, email, password } = userData;
 
   let errors: string[] = [];
