@@ -1,13 +1,7 @@
 const baseUrl = 'http://localhost:5000';
 
-export async function getAll(page, category, query) {
-    if (query !== "" && query !== undefined) {
-        return (await fetch(`${baseUrl}/products?page=${page}&search=${query}`, { credentials: 'include' })).json();
-    } else if (category && category !== 'all') {
-        return (await fetch(`${baseUrl}/products/${category}?page=${page}`, { credentials: 'include' })).json();
-    } else {
-        return (await fetch(`${baseUrl}/products?page=${page}`, { credentials: 'include' })).json();
-    }
+export async function getAll(page, limit) {
+    return (await fetch(`${baseUrl}/task?page=${page}&limit=${limit}`, { credentials: 'include' }));
 }
 
 export async function getSpecific(id) {

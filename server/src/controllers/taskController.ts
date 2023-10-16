@@ -6,10 +6,11 @@ import { validateTask } from "../utils";
 export const taskController = Router();
 
 taskController.get("/", async (req, res) => {
-  const { page, limit } = req.body;
+  const { page, limit } = req.query;
   try {
-    const tasks = await taskService.getAll(page || 1, limit || 5);
-    res.status(200).json({ tasks: tasks.docs, pages: tasks.pages });
+    const tasks = await taskService.getAll(+ (page ?? 1), + (limit ?? 5));
+    console.log(tasks);
+    res.status(200).json({ tasks: tasks.docs });
   } catch (err) {
     res.status(500).json({ message: (err as ErrorType).message });
   }
@@ -19,7 +20,6 @@ taskController.post("/create", async (req, res) => {
   try {
     let errors = validateTask(req.body);
     if (errors.length >= 1) throw { message: [errors] };
-
     const task = await taskService.create(
       req.body,
       (req as UserRequest).user._id

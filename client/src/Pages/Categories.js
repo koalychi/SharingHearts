@@ -21,9 +21,10 @@ function Categories({ match }) {
         setPage(1);
         setLoading(true);
         setQuery("")
-        getAll(1, currentCategory)
+        getAll(1, 5)
             .then(res => {
-                setProduct(res.products);
+                // setProduct(res.tasks);
+                console.log(res);
                 setLoading(false);
                 setPage(page => page + 1);
                 setQuery("");
@@ -31,21 +32,21 @@ function Categories({ match }) {
             .catch(err => console.log(err));
     }, [currentCategory, setProduct])
 
-    useEffect(() => {
-        setPage(1);
-        setLoading(true);
-        getAll(2, currentCategory, query)
-            .then(res => {
-                if (query === "") {
-                    setProduct(products => [...products, ...res.products]);
-                } else {
-                    setProduct(res.products)
-                }
-                setLoading(false);
-                setPage(page => page + 1);
-            })
-            .catch(err => console.log(err));
-    }, [query, currentCategory])
+    // useEffect(() => {
+    //     setPage(1);
+    //     setLoading(true);
+    //     getAll(2, 5, query)
+    //         .then(res => {
+    //             if (query === "") {
+    //                 setProduct(products => [...products, ...res.products]);
+    //             } else {
+    //                 setProduct(res.products)
+    //             }
+    //             setLoading(false);
+    //             setPage(page => page + 1);
+    //         })
+    //         .catch(err => console.log(err));
+    // }, [query, currentCategory])
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -91,20 +92,20 @@ function Categories({ match }) {
                             }}
                             className="row categoryRow">
                             {products
-                                .sort((a, b) => {
-                                    if (sort === "oldest") {
-                                        return a.addedAt.localeCompare(b.addedAt)
-                                    }
-                                    if (sort === "newest") {
-                                        return b.addedAt.localeCompare(a.addedAt)
-                                    }
-                                    if (sort === "lowerPrice") {
-                                        return b.price - a.price
-                                    }
-                                    if (sort === "biggerPrice") {
-                                        return a.price - b.price
-                                    }
-                                })
+                                // .sort((a, b) => {
+                                //     if (sort === "oldest") {
+                                //         return a.addedAt.localeCompare(b.addedAt)
+                                //     }
+                                //     if (sort === "newest") {
+                                //         return b.addedAt.localeCompare(a.addedAt)
+                                //     }
+                                //     if (sort === "lowerPrice") {
+                                //         return b.price - a.price
+                                //     }
+                                //     if (sort === "biggerPrice") {
+                                //         return a.price - b.price
+                                //     }
+                                // })
                                 .map(x =>
                                     <Col xs={12} md={6} lg={3} key={x._id.toString()}>
                                         <ProductCard params={x} />

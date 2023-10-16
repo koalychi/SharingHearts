@@ -14,7 +14,7 @@ export const edit = async (id: string, data: TaskType) => {
 }
 
 export const create = async (data: TaskType, userId: string) => {
-    let task = new Task({...data, author_id: userId})
+    let task = new Task({...data, owner_Id: userId})
     await task.save();
     await User.updateOne({ _id: userId }, { $push: { tasks: task } });
     

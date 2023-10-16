@@ -2,8 +2,7 @@ import jwt, { VerifyErrors } from "jsonwebtoken";
 import { NextFunction, Response } from "express";
 import { UserRequest, UserType } from "../types";
 
-export const auth = () => {
-  return (req: UserRequest, res: Response, next: NextFunction) => {
+export const auth = (req: UserRequest, res: Response, next: NextFunction) => {
     if (!process.env.COOKIE_NAME || !process.env.SECRET) {
       next();
       return;
@@ -20,4 +19,3 @@ export const auth = () => {
     }
     next();
   };
-};

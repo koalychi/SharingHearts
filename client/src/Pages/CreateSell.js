@@ -41,7 +41,7 @@ class AddProduct extends Component {
   onSubmitHandler(e) {
     e.preventDefault();
     const { title, description, tags, deadline } = this.state;
-    const obj = {  title, description, tags: [...tags], deadline: deadline.toJSON() };
+    const obj = {  title, description, tags: tags.map((tag => tag.text)), deadline: deadline.toJSON() };
     this.setState({ loading: true });
    
         createProduct(obj)
@@ -53,7 +53,7 @@ class AddProduct extends Component {
             } else {
                 //TODO: исправить ссылку
               this.props.history.push(
-                `/categories/${res.productId}/details`
+                `/categories/${res.taskId}/details`
               );
             }
           })
