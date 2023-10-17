@@ -1,16 +1,16 @@
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Button } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
 import './Categories.css'
-import { BsHouseDoorFill, BsFillHouseFill, BsFillPuzzleFill } from 'react-icons/bs'
-import { AiFillCar } from 'react-icons/ai';
-import { GiFlowerPot, GiClothes } from 'react-icons/gi';
-import { TiSortAlphabetically } from 'react-icons/ti';
-import { MdPhoneAndroid } from 'react-icons/md'
+// import { BsHouseDoorFill, BsFillHouseFill, BsFillPuzzleFill } from 'react-icons/bs'
+// import { AiFillCar } from 'react-icons/ai';
+// import { GiFlowerPot, GiClothes } from 'react-icons/gi';
+// import { TiSortAlphabetically } from 'react-icons/ti';
+// import { MdPhoneAndroid } from 'react-icons/md'
 
 function CategoriesNav() {
     return (
-        <div className="container" id="categories">
-            <h1>Categories</h1>
+        <div className="container bg-highlight border" id="categories">
+            {/* <h1>Categories</h1>
             <Link to="/categories/all">
                 <Button variant="dark" id="all"><TiSortAlphabetically />All</Button>{' '}
             </Link>
@@ -34,7 +34,7 @@ function CategoriesNav() {
             </Link>
             <Link to="/categories/garden">
                 <Button variant="dark" id="garden"><GiFlowerPot />Garden</Button>{' '}
-            </Link>
+            </Link> */}
         </div>
     )
 }

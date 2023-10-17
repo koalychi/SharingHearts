@@ -2,10 +2,11 @@ import { useContext } from 'react';
 import { Context } from '../../ContextStore';
 import { Navbar, NavDropdown, Nav, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { BsFillPersonFill, BsFillEnvelopeFill } from 'react-icons/bs';
+// import { BsFillPersonFill, BsFillEnvelopeFill } from 'react-icons/bs';
 import { IoLogOut } from 'react-icons/io5'
 import logo from '../../images/logo-no-background.svg';
 import plusIcon from '../../images/plus.svg';
+import UserImage from '../../images/default-user.jpg'
 
 import './Header.css'
 function Header() {
@@ -28,36 +29,38 @@ function Header() {
                     
                     {userData ?
                         (<Nav>
-                            <NavLink className="nav-item" id="addButton" to="/add-product">
+                            <NavLink className="nav-item" id="addButton" to="/add-task">
                                 <OverlayTrigger key="bottom" placement="bottom"
                                     overlay={
                                         <Tooltip id={`tooltip-bottom`}>
-                                            <strong>Add</strong>  a sell.
+                                            <strong>Add</strong>  a task.
                                         </Tooltip>
                                     }
                                 >
-                                    <img src={plusIcon} width="32" height="32" />
+                                    <img src={plusIcon} alt="plus" width="32" height="32" />
                                 </OverlayTrigger>
                             </NavLink>
 
-                            <NavDropdown title={<img id="navImg" src={userData.avatar} alt="user-avatar"/>} drop="left" id="collasible-nav-dropdown">
-                                <NavLink className="dropdown-item" to={`/profile/${userData._id}`}>
+                            <NavDropdown title={
+                                <img id="navImg" src={UserImage} alt="user-avatar"/>
+                                } drop="left" id="collasible-nav-dropdown">
+                                {/* <NavLink className="dropdown-item" to={`/profile/${userData._id}`}>
                                     <BsFillPersonFill />Profile
-                                </NavLink>
+                                </NavLink> */}
 
                                 {/* <NavDropdown.Divider /> */}
 
                                 {/* <NavLink className="dropdown-item" to="/your-sells">
                                     <BsFillGridFill />Sells
                             </NavLink> */}
-                                <NavLink className="dropdown-item" to="/messages">
+                                {/* <NavLink className="dropdown-item" to="/messages">
                                     <BsFillEnvelopeFill />Messages
-                            </NavLink>
+                            </NavLink> */}
                                 {/* <NavLink className="dropdown-item" to="/wishlist">
                                     <BsFillHeartFill />Wishlist
                             </NavLink> */}
 
-                                <NavDropdown.Divider />
+                                {/* <NavDropdown.Divider /> */}
 
                                 <NavLink className="dropdown-item" to="/auth/logout" onClick={() => {
                                     setUserData(null)

@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:5000';
 
 export async function getAll(page, limit) {
-    return (await fetch(`${baseUrl}/task?page=${page}&limit=${limit}`, { credentials: 'include' }));
+    return (await fetch(`${baseUrl}/task?page=${page}&limit=${limit}`, { credentials: 'include' })).json();
 }
 
 export async function getSpecific(id) {

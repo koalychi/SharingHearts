@@ -17,6 +17,11 @@
     text-align: right;
 }
 
+.card-image {
+    flex-basis: 200px;
+    flex-shrink: 0;
+}
+
 #heartIcon {
     font-size: 16pt;
     margin-left: 5%;

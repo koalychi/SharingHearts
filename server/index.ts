@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -15,7 +15,7 @@ app.use(cors({origin: 'http://localhost:3000', credentials: true}));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
-app.use(auth)
+app.use(auth as RequestHandler)
 
 connectDB()
 

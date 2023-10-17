@@ -53,7 +53,7 @@ class AddProduct extends Component {
             } else {
                 //TODO: исправить ссылку
               this.props.history.push(
-                `/categories/${res.taskId}/details`
+                `/`
               );
             }
           })
@@ -128,10 +128,11 @@ class AddProduct extends Component {
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCategory">
+            <Form.Group controlId="formGridCategory">
               <Form.Label>Tags</Form.Label>
 
               <ReactTags
+                inline
                 tags={this.state.tags}
                 delimiters={delimiters}
                 handleDelete={this.handleDelete}
@@ -140,10 +141,11 @@ class AddProduct extends Component {
                 inputFieldPosition="bottom"
               />
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group controlId="formGridCity">
               <Form.Label>Deadline</Form.Label>
               <Calendar
                 value={this.state.deadline}
+                locale="en"
                 onChange={(val) => this.setState({ deadline: val })}
               />
             </Form.Group>
@@ -154,7 +156,7 @@ class AddProduct extends Component {
               </Button>
             ) : (
               <Button className="col-lg-12" variant="dark" type="submit">
-                Add product
+                Create task
               </Button>
             )}
           </Form>

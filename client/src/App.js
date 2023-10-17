@@ -27,7 +27,7 @@ function App() {
             <Route path="/auth/login" exact component={Login} />
             <Route path="/auth/register" exact component={Register} />
             <Route path="/auth/logout" exact render={LogOut} />
-            <Route path='/add-product' exact component={CreateSell} />;
+            <Route path='/add-task' exact component={CreateSell} />;
             <Route path='/profile/:id' exact component={Profile} />;
             <Route path='/profile/:id/edit' exact component={EditProfile} />;
             <Route path='/messages' exact component={Messages} />;
