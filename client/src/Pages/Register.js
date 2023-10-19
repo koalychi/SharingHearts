@@ -9,10 +9,8 @@ function Register({ history }) {
     const [alertShow, setAlertShow] = useState(false);
     const [error, setError] = useState(null);
     const [userData, setUserData] = useState({
-        name: null,
-        lastName: null,
-        gender: null,
-        phoneNumber: '',
+        first_name: null,
+        last_name: null,
         email: "",
         password: "",
         repeatPassword: ""
@@ -51,27 +49,27 @@ function Register({ history }) {
                         </Alert>
                     }
                     <Form.Row>
-                        <Form.Group controlId="forName" className="col-lg-8">
-                            <Form.Label>Name *</Form.Label>
-                            <Form.Control type="text" name="name" placeholder="Ivan Ivanov" onChange={handleChanges} required />
-                            <Form.Text muted>
-                                The name can be your real one or a username.
-                            </Form.Text>
+                        <Form.Group controlId="forName" className="col-lg-12">
+                            <Form.Label>First Name *</Form.Label>
+                            <Form.Control type="text" name="first_name" placeholder="Ivan Ivanov" onChange={handleChanges} required />
                         </Form.Group>
-                        {/* <Form.Group controlId="forLastName" className="col-lg-4">
-                            <Form.Label>Last Name</Form.Label>
-                            <Form.Control type="text" name="lastName" placeholder="Ivanov" onChange={handleChanges} />
-                        </Form.Group> */}
-                        <Form.Group as={Col} controlId="formGridGender" className="col-lg-4">
+                    </Form.Row> 
+                    <Form.Row>
+                        <Form.Group controlId="forLastName" className="col-lg-12">
+                            <Form.Label>Last Name *</Form.Label>
+                            <Form.Control type="text" name="last_name" placeholder="Ivanov" onChange={handleChanges} required />
+                        </Form.Group>
+                    </Form.Row>
+                        {/* <Form.Group as={Col} controlId="formGridGender" className="col-lg-4">
                             <Form.Label>Gender</Form.Label>
                             <Form.Control as="select" defaultValue="not specified" name="gender" onChange={handleChanges}>
                                 <option>male</option>
                                 <option>female</option>
                                 <option>not specified</option>
                             </Form.Control>
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
+                        </Form.Group> */}
+                    {/* </Form.Row> */}
+                    {/* <Form.Row>
                         <Form.Group className="col-lg-12">
                             <Form.Label>Phone Number *</Form.Label>
                             <Form.Control type="text" name="phoneNumber" placeholder="+359888888888" onChange={handleChanges} required />
@@ -79,7 +77,7 @@ function Register({ history }) {
                                 Phone Number should be a valid BG number.
                             </Form.Text>
                         </Form.Group>
-                    </Form.Row>
+                    </Form.Row> */}
                     <Form.Row>
                         <Form.Group controlId="formBasicEmail" className="col-lg-12">
                             <Form.Label>Email address *</Form.Label>
@@ -97,6 +95,9 @@ function Register({ history }) {
                         <Form.Group className="col-lg-6">
                             <Form.Label>Reepeat Password *</Form.Label>
                             <Form.Control type="password" name="repeatPassword" placeholder="Repeat password" onChange={handleChanges} required />
+                            {userData.password !== userData.repeatPassword &&<Form.Text className='text-danger'>
+                                Password do not match
+                            </Form.Text>}
                         </Form.Group>
                     </Form.Row>
                     {loading ?
@@ -104,7 +105,7 @@ function Register({ history }) {
                             Please wait... <Spinner animation="border" />
                         </Button>
                         :
-                        <Button variant="dark" className="col-lg-12 btnAuth" type="submit">Sign Up</Button>
+                        <Button variant="dark" className="col-lg-12 btnAuth" type="submit" disabled={userData.password !== userData.repeatPassword}>Sign Up</Button>
                     }
 
                     <p className="bottom-msg-paragraph">Already have an account? <Link to="/auth/login">Sign In</Link>!</p>
